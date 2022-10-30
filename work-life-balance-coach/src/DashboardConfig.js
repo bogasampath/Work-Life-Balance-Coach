@@ -3,6 +3,7 @@ import { Form, Col, Input, Modal, Image } from "antd";
 import "./DashboardConfig.css";
 import logo from "./work-life-balance-logo.png";
 import settings from "./settings.png";
+import { VictoryPie } from "victory";
 
 const taskDone = 0;
 
@@ -76,7 +77,7 @@ const DashboardConfig = (props) => {
         body: notifiactionText,
         icon: logo,
       });
-      setTasks((prev) => prev + 1);
+      setTotalTasks((prev) => prev + 1);
       notifiaction.onclick = (e) => {
         setTaskDone((prev) => prev + 1);
       };
@@ -113,7 +114,6 @@ const DashboardConfig = (props) => {
   const diableNotification = () => {
     userResponse(true);
   };
-  const myJSON = JSON.stringify(tasks);
   return (
     <div>
       <img className="logo" src={logo} alt="Work-Life-Balance" />
@@ -135,53 +135,10 @@ const DashboardConfig = (props) => {
           <div>Hi {data?.name ? data?.name : "Guest"}</div>
           <p>Total Tasks: {totaltasks}</p>
           <p>Task Done: {taskDone}</p>
-          <p>{myJSON}</p>
         </div>
       ) : (
         <>Please Enable Notifiactions</>
       )}
-      {/* <div className={`form ${isModalOpen ? "showForm" : "hideForm"}`}>
-        <form onSubmit={handleSubmit}>
-          <Col>
-            <label>
-              Name:
-              <input
-                type="text"
-                name="name"
-                value={data.name || ""}
-                onChange={handleChange}
-              />
-            </label>
-          </Col>
-          <Col>
-            <label>
-              Total working Hours:
-              <input
-                type="number"
-                name="totalHours"
-                value={data.totalHours || ""}
-                onChange={handleChange}
-                //defaultValue={"1"}
-              />
-              <span>Hrs</span>
-            </label>
-          </Col>
-          <Col>
-            <label>
-              break reminder:
-              <input
-                type="number"
-                name="breakInterval"
-                value={data.breakInterval || ""}
-                onChange={handleChange}
-              />
-              <span>Hrs</span>
-            </label>
-          </Col>
-
-          <input type="submit" value="Submit" />
-        </form>
-      </div> */}
 
       <div id="myModal" className={`modal ${isModalOpen ? "modal-show" : ""}`}>
         <div className="modal-content">

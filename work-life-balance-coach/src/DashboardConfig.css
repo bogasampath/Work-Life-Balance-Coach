@@ -1,0 +1,25 @@
+
+.form{
+    display: none;
+    border: 2px solid;
+    border-radius: 10px;
+    max-width: 500px;
+    align-self: center;
+
+}
+.showForm{
+    display: flex !important;
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+    justify-self: center;
+  }
+.settings{
+    height: 40px;
+    width: 40px;
+    float: right;
+    margin-right: 45px;
+    margin-top: 35px;
+  }
